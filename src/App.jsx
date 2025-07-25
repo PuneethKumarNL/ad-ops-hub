@@ -238,7 +238,16 @@ export default function App() {
   };
   
   const TabButton = ({ tabName, label, icon: Icon }) => (
-    <button onClick={() => setActiveTab(tabName)} disabled={tabName === 'lab' && !activeStep.lab} className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 flex items-center disabled:opacity-50 disabled:cursor-not-allowed ${ activeTab === tabName ? 'bg-teal-500 text-white' : 'text-gray-300 hover:bg-gray-700' }`} > <Icon className="w-4 h-4 mr-2"/> {label} </button>
+    <button
+      onClick={() => setActiveTab(tabName)}
+      disabled={tabName === 'lab' && !activeStep.lab}
+      className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 flex items-center disabled:opacity-50 disabled:cursor-not-allowed ${
+        activeTab === tabName ? 'bg-teal-500 text-white' : 'text-gray-300 hover:bg-gray-700'
+      }`}
+    >
+      {Icon && <Icon className="w-4 h-4 mr-2" />}
+      {label}
+    </button>
   );
 
   return (
